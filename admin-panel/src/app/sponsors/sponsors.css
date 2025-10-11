@@ -1,0 +1,133 @@
+.preview-block {
+	margin-top: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 6px;
+}
+.preview-img {
+	width: 80px;
+	height: 80px;
+	object-fit: contain;
+	border-radius: 12px;
+	background: #f4f7ff;
+	box-shadow: 0 2px 8px #3a5aff11;
+	border: 1px solid #dbe2ff;
+}
+
+.sponsors-page {
+	max-width: 700px;
+	margin: 48px auto;
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 4px 24px rgba(58,90,255,0.10);
+	padding: 32px 24px;
+}
+
+.sponsors-page h2 {
+	color: #3a5aff;
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.error {
+	color: #d32f2f;
+	background: #ffeaea;
+	border-radius: 8px;
+	padding: 8px 16px;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.sponsor-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 32px 0;
+}
+.sponsor-item {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	padding: 12px 0;
+	border-bottom: 1px solid #eaf0ff;
+}
+.sponsor-logo {
+	width: 64px;
+	height: 64px;
+	object-fit: contain;
+	border-radius: 12px;
+	background: #f4f7ff;
+	box-shadow: 0 2px 8px #3a5aff11;
+}
+.sponsor-info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.sponsor-name {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #1e2a78;
+}
+.sponsor-link {
+	color: #3a5aff;
+	text-decoration: underline;
+	font-size: 1rem;
+	transition: color 0.2s;
+}
+.sponsor-link:hover {
+	color: #1e2a78;
+}
+
+.add-sponsor-form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 32px;
+	background: #f4f7ff;
+	border-radius: 16px;
+	padding: 24px 18px;
+	box-shadow: 0 2px 8px #3a5aff11;
+}
+.add-sponsor-form h3 {
+	color: #3a5aff;
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+.add-sponsor-form input[type="text"],
+.add-sponsor-form input[type="url"] {
+	padding: 10px 12px;
+	border-radius: 8px;
+	border: 1px solid #dbe2ff;
+	background: white;
+	font-size: 1rem;
+	transition: border 0.2s;
+}
+.add-sponsor-form input[type="text"]:focus,
+.add-sponsor-form input[type="url"]:focus {
+	outline: none;
+	border: 1.5px solid #3a5aff;
+}
+.add-sponsor-form input[type="file"] {
+	font-size: 1rem;
+}
+.add-sponsor-form button {
+	background: linear-gradient(90deg, #3a5aff 60%, #1e2a78 100%);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 12px 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 8px;
+	box-shadow: 0 2px 8px rgba(58,90,255,0.10);
+	transition: background 0.2s, box-shadow 0.2s;
+}
+.add-sponsor-form button:hover {
+	background: linear-gradient(90deg, #1e2a78 0%, #3a5aff 100%);
+	box-shadow: 0 4px 16px rgba(58,90,255,0.18);
+}
