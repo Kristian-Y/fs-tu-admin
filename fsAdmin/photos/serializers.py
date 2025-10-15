@@ -4,11 +4,11 @@ from .models import Year, TeamPhoto
 class TeamPhotoSerializer(serializers.ModelSerializer):
   class Meta:
     model = TeamPhoto
-    fields = ['id', 'image', 'description']
+    fields = "__all__"
 
 class YearSerializer(serializers.ModelSerializer):
   photos = TeamPhotoSerializer(many=True)
 
   class Meta:
     model = Year
-    fields = ['year', 'photos']
+    fields = "__all__"

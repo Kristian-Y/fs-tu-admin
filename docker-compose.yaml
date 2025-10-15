@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./fsAdmin
+    container_name: fs_tu_backend
+    volumes:
+      - ./fsAdmin:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+
+  frontend:
+    build: ./admin-panel
+    container_name: fs_tu_admin_panel
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - TURBOPACK=true
+      - WATCHPACK_POLLING=true
+      - WATCHPACK_POLLING_INTERVAL=1000
+    volumes:
+      - ./admin-panel:/app:delegated
+      - /app/node_modules
+    depends_on:
+      - backend
+    

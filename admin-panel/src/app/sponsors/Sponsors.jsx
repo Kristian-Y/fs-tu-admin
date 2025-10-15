@@ -32,6 +32,7 @@ export default function Sponsors() {
       try {
         const res = await axiosInstance.get("sponsors/");
         setSponsors(res.data);
+        console.log(res.data);
       } catch (err) {
         setError("Could not load sponsors.");
       }
@@ -76,14 +77,28 @@ export default function Sponsors() {
     setAdding(false);
   }
 
+  async function handleDeleteSponsor(id) {
+    if (!confirm("Are you sure you want to delete this sponsor?")) return;
+    try {
+      await axiosInstance.delete(`sponsors/${id}/`);
+      setSponsors(sponsors.filter((s) => s.id !== id));
+    } catch (err) {
+      setError("Error deleting sponsor.");
+    }
+  }
+
+
   if (loading || !user) return <p>Loading...</p>;
+
 
   return (
     <div className="sponsors-page">
       <h2>All Sponsors</h2>
       {error && <div className="error">{error}</div>}
+      {console.log(sponsors)}
+ 
       <ul className="sponsor-list">
-        {sponsors.map((s) => (
+        {sponsors.length == 0 ? <li>No sponsors found.</li> : sponsors.map((s) => (
           <li key={s.id} className="sponsor-item">
             {s.logo && (
               <img src={s.logo} alt={s.name} className="sponsor-logo" />
@@ -93,6 +108,7 @@ export default function Sponsors() {
               {s.link && (
                 <a href={s.link} target="_blank" rel="noopener noreferrer" className="sponsor-link">Visit</a>
               )}
+              <button onClick={() => handleDeleteSponsor(s.id)} className='sponsor-delete'>Delete</button>
             </div>
           </li>
         ))}
@@ -112,11 +128,20 @@ export default function Sponsors() {
           value={link}
           onChange={(e) => setLink(e.target.value)}
         />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleLogoChange}
-        />
+        <div className="file">
+          <label className="file-label">
+            Choose Logo
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleLogoChange}
+              style={{ display: "none" }}
+            />
+          </label>
+          <span className="selected-file-name">
+            {logo ? logo.name : ""}
+          </span>
+        </div>
         {preview && (
           <div className="preview-block">
             <span>Preview:</span>

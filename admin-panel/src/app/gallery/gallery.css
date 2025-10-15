@@ -1,0 +1,149 @@
+.gallery-page {
+  max-width: 900px;
+  margin: 48px auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(58,90,255,0.10);
+  padding: 32px 24px;
+}
+.add-year-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.add-year-form input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dbe2ff;
+  background: white;
+  font-size: 1rem;
+}
+.add-year-form button {
+  background: linear-gradient(90deg, #3a5aff 60%, #1e2a78 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.gallery-year-block {
+  margin-bottom: 32px;
+  border-bottom: 1px solid #eaf0ff;
+  padding-bottom: 24px;
+}
+.gallery-year-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: #f4f7ff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+}
+.gallery-year-header h3 {
+  color: #3a5aff;
+  margin: 0;
+}
+.delete-year-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: color 0.2s;
+}
+.delete-year-btn:hover {
+  color: #d32f2f;
+}
+.gallery-year-content {
+  margin-left: 12px;
+}
+.gallery-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.gallery-photo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.gallery-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #3a5aff11;
+  border: 1px solid #dbe2ff;
+  transition: box-shadow 0.2s;
+}
+.gallery-photo-wrapper:hover .gallery-photo {
+  box-shadow: 0 4px 16px #ff4d4d33;
+}
+.delete-photo-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255,77,77,0.85);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+.gallery-photo-wrapper:hover .delete-photo-btn {
+  opacity: 1;
+}
+.upload-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  position: relative;
+}
+.file-label:hover {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+.upload-btn {
+  background: linear-gradient(90deg, #3a5aff 60%, #1e2a78 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.selected-file-name {
+  font-size: 1rem;
+  color: #1e2a78;
+  font-weight: 500;
+}
+.error {
+  color: #d32f2f;
+  background: #ffeaea;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}

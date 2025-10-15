@@ -13,8 +13,9 @@ export default function Panel() {
         </div>
         <ul className="navbar-links">
           <li><a href="/admin-panel">Home</a></li>
-          <li><a href="#sponsors">Sponsors</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="/sponsors">Sponsors</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="#">Logout</a></li>
         </ul>
       </nav>
     </>
