@@ -93,65 +93,102 @@ export default function Sponsors() {
 
   return (
     <div className="sponsors-page">
-      <h2>All Sponsors</h2>
-      {error && <div className="error">{error}</div>}
-      {console.log(sponsors)}
- 
-      <ul className="sponsor-list">
-        {sponsors.length == 0 ? <li>No sponsors found.</li> : sponsors.map((s) => (
-          <li key={s.id} className="sponsor-item">
-            {s.logo && (
-              <img src={s.logo} alt={s.name} className="sponsor-logo" />
-            )}
-            <div className="sponsor-info">
-              <span className="sponsor-name">{s.name}</span>
-              {s.link && (
-                <a href={s.link} target="_blank" rel="noopener noreferrer" className="sponsor-link">Visit</a>
-              )}
-              <button onClick={() => handleDeleteSponsor(s.id)} className='sponsor-delete'>Delete</button>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <form className="add-sponsor-form" onSubmit={handleAddSponsor}>
-        <h3>Add New Sponsor</h3>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="url"
-          placeholder="Link (optional)"
-          value={link}
-          onChange={(e) => setLink(e.target.value)}
-        />
-        <div className="file">
-          <label className="file-label">
-            Choose Logo
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleLogoChange}
-              style={{ display: "none" }}
-            />
-          </label>
-          <span className="selected-file-name">
-            {logo ? logo.name : ""}
-          </span>
+      <div className="welcome-block">
+        <div className="welcome-content">
+          <h1>Sponsors Management</h1>
+          <p className="welcome-desc">Manage your team sponsors and partnerships.</p>
         </div>
-        {preview && (
-          <div className="preview-block">
-            <span>Preview:</span>
-            <img src={preview} alt="Preview" className="preview-img" />
-          </div>
-        )}
-        <button type="submit" disabled={adding}>
-          {adding ? "Adding..." : "Add Sponsor"}
-        </button>
-      </form>
+      </div>
+
+      <div className="content-block">
+        <div className="sponsors-list-section">
+          <h2>Current Sponsors</h2>
+          {error && <div className="error">{error}</div>}
+          
+          <ul className="sponsor-list">
+            {sponsors.length === 0 ? (
+              <li className="no-sponsors">No sponsors found.</li>
+            ) : (
+              sponsors.map((s) => (
+                <li key={s.id} className="sponsor-item">
+                  <div className="sponsor-card">
+                    {s.logo && (
+                      <img src={s.logo} alt={s.name} className="sponsor-logo" />
+                    )}
+                    <div className="sponsor-info">
+                      <span className="sponsor-name">{s.name}</span>
+                      <div className="sponsor-actions">
+                        {s.link && (
+                          <a
+                            href={s.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="sponsor-link"
+                          >
+                            Visit
+                          </a>
+                        )}
+                        <button
+                          onClick={() => handleDeleteSponsor(s.id)}
+                          className="sponsor-delete"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+
+        <div className="add-sponsor-section">
+          <form className="add-sponsor-form" onSubmit={handleAddSponsor}>
+            <h3>Add New Sponsor</h3>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="url"
+                placeholder="Link (optional)"
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
+              />
+            </div>
+            <div className="form-group file">
+              <label className="file-label">
+                Choose Logo
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleLogoChange}
+                  style={{ display: "none" }}
+                />
+              </label>
+              {logo && (
+                <span className="selected-file-name">{logo.name}</span>
+              )}
+            </div>
+            {preview && (
+              <div className="preview-block">
+                <span>Preview:</span>
+                <img src={preview} alt="Preview" className="preview-img" />
+              </div>
+            )}
+            <button type="submit" className="submit-btn" disabled={adding}>
+              {adding ? "Adding..." : "Add Sponsor"}
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

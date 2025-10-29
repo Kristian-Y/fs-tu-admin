@@ -1,12 +1,13 @@
-
-
 .dashboard-container {
 	min-height: 100vh;
-	background: linear-gradient(135deg, #3a5aff 0%, #1e2a78 100%);
+	background-color: #0A0A0F;
+	color: #E5E5E5;
+	padding: 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	animation: fadeInBg 1.2s ease;
+	padding: 100px;
 }
 
 @keyframes fadeInBg {
@@ -17,19 +18,37 @@
 
 
 .welcome-block {
-	margin-top: 64px;
-	background: white;
-	border-radius: 24px;
-	box-shadow: 0 8px 32px rgba(58,90,255,0.16);
-	padding: 56px 48px;
-	min-width: 340px;
-	text-align: center;
-	position: relative;
-	animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
-	transition: box-shadow 0.3s;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  padding: 32px;
+  background: linear-gradient(135deg, #1A1A2E 0%, #2A2A3E 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 .welcome-block:hover {
-	box-shadow: 0 12px 48px rgba(58,90,255,0.22);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px rgba(0, 102, 255, 0.15);
+}
+
+.welcome-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(51, 128, 255, 0.3), transparent);
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes popIn {
@@ -39,15 +58,15 @@
 }
 
 .welcome-block h1 {
-	color: #3a5aff;
-	font-size: 2.4rem;
-	font-weight: 700;
-	margin-bottom: 18px;
-	letter-spacing: 2px;
-	background: linear-gradient(90deg, #3a5aff 60%, #1e2a78 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-		background-clip: text;
+  color: #3380FF;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #0066FF 0%, #3380FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
 	transition: text-shadow 0.2s;
 }
 .welcome-block h1:hover {
@@ -55,12 +74,174 @@
 }
 
 .welcome-desc {
-	color: #1e2a78;
-	font-size: 1.15rem;
-	margin: 0;
-	opacity: 0.85;
-	transition: opacity 0.2s;
+  color: #E5E5E5;
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.6;
 }
-.welcome-block:hover .welcome-desc {
-	opacity: 1;
+
+.welcome-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.welcome-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.welcome-stat-label {
+  color: #8899AA;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.welcome-stat-value {
+  color: #E5E5E5;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Добави ефект на светене при hover */
+.welcome-block:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%), 
+    rgba(51, 128, 255, 0.1) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  animation: glow 0.6s forwards;
+}
+
+@keyframes glow {
+  to {
+    opacity: 1;
+  }
+}
+
+.stats {
+  background: #15151E;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.stats-tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.tab {
+  background: #2A2A3E;
+  color: #E5E5E5;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background: #3A3A4E;
+}
+
+.tab.active {
+  background: #0066FF;
+  color: white;
+}
+
+.time-range select {
+  background: #2A2A3E;
+  color: #E5E5E5;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.stat-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.stat-card {
+  background: #1A1A2E;
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  color: #E5E5E5;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3380FF;
+  margin-bottom: 0.5rem;
+}
+
+.stat-change {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.stat-change.positive {
+  background: rgba(0, 204, 102, 0.1);
+  color: #00CC66;
+}
+
+.stat-change.negative {
+  background: rgba(255, 51, 51, 0.1);
+  color: #FF3333;
+}
+
+.chart-container {
+  background: #1A1A2E;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0A0A0F;
+  color: #3380FF;
+  font-size: 1.5rem;
 }

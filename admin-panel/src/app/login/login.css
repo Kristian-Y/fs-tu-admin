@@ -4,7 +4,8 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: linear-gradient(135deg, #3a5aff 0%, #1e2a78 100%);
+  /* background: linear-gradient(135deg, #3a5aff 0%, #1e2a78 100%); */
+  background-color: #0A0A0F;
   min-height: 100vh;
 }
 
@@ -20,21 +21,21 @@ main {
 
 .welcome h1 {
   margin: 0;
-  color: #1e2a78;
+  color: #E5E5E5;
   font-size: 2.2rem;
   font-weight: 700;
   letter-spacing: 2px;
-  background: white;
+  background: #15151E;
   padding: 8px 32px;
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(58,90,255,0.08);
+  box-shadow: 0 2px 8px #3380FF;
 }
 
 
 form {
-  background: white;
+  background-color: #15151E;
   border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(58,90,255,0.12);
+  box-shadow: 0 4px 24px #00DD77;
   padding: 32px 32px 24px 32px;
   min-width: 320px;
   display: flex;
@@ -44,7 +45,7 @@ form {
 
 form h2 {
   text-align: center;
-  color: #3a5aff;
+  color: #E5E5E5;
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 16px;
@@ -59,7 +60,7 @@ form h2 {
 }
 
 .input label {
-  color: #1e2a78;
+  color: #E5E5E5;
   font-weight: 500;
 }
 
@@ -67,17 +68,22 @@ form h2 {
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #dbe2ff;
-  background: #f4f7ff;
+  background-color: #3a3a3a;
+  color: white;
   font-size: 1rem;
   transition: border 0.2s;
 }
 .input input:focus {
   outline: none;
-  border: 1.5px solid #3a5aff;
+  border: 1.5px solid #5370ff;
+}
+
+.input input::placeholder {
+  color: white;
 }
 
 button {
-  background: linear-gradient(90deg, #3a5aff 60%, #1e2a78 100%);
+  background: linear-gradient(90deg, #3380FF 30%, #00DD77 78%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -86,12 +92,10 @@ button {
   font-weight: 600;
   cursor: pointer;
   margin-top: 8px;
-  box-shadow: 0 2px 8px rgba(58,90,255,0.10);
-  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(51,128,255,0.10);
+  transition: background 0.2s ease-in, box-shadow 0.2s;
 }
 button:hover {
-  background: linear-gradient(90deg, #1e2a78 0%, #3a5aff 100%);
+  background: linear-gradient(90deg, #00DD77 0%, #3380FF 100%);
   box-shadow: 0 4px 16px rgba(58,90,255,0.18);
 }
-
-/* ...existing code... */
