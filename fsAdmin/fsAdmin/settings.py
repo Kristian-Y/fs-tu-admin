@@ -33,6 +33,8 @@ DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
+# Discord 
+DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
 # Media
 
@@ -56,7 +58,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'photos',
-    'sponsors'
+    'sponsors',
+    'forms',
 ]
 
 MIDDLEWARE = [

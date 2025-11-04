@@ -30,4 +30,5 @@ urlpatterns = [
     path('api/user/', UserAuthView.as_view(), name='user_auth'),
     path('api/sponsors/', include('sponsors.urls')),
     path('api/photos/', include('photos.urls')),
+    path('api/forms/', include('forms.urls')),
 ]
