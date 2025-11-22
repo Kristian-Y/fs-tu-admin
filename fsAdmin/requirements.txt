@@ -4,3 +4,7 @@ djangorestframework-simplejwt
 pillow
 django-cors-headers
 openpyxl
+dotenv
+cloudinary
+django-cloudinary-storage
+requests

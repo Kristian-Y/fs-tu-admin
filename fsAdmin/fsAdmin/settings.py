@@ -19,7 +19,6 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
@@ -34,8 +33,9 @@ DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = []
 
 # Discord 
-DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
-
+DISCORD_WEBHOOK_SUPP_URL = os.getenv("DISCORD_WEBHOOK_SUPP_URL")
+DISCORD_WEBHOOK_JOIN_URL = os.getenv("DISCORD_WEBHOOK_JOIN_URL")
+DISCORD_WEBHOOK_CONTACT_URL = os.getenv("DISCORD_WEBHOOK_CONTACT_URL")
 # Media
 
 # MEDIA_URL = '/media/'

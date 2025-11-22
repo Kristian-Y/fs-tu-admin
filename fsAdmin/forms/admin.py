@@ -15,31 +15,6 @@ class SponsorApplicationAdmin(admin.ModelAdmin):
     list_filter = ("tier", "created_at")
     actions = ["export_as_xlsx"]
 
-    def save_model(self, request, obj, form, change):
-        """При нов запис пращаме Discord известие"""
-        super().save_model(request, obj, form, change)
-
-        if not change and DISCORD_WEBHOOK_URL:
-            embed = {
-                "title": "🆕 Нова спонсорска заявка!",
-                "color": 0xFFD700 if obj.tier == "gold" else 0xC0C0C0 if obj.tier == "silver" else 0xCD7F32 if obj.tier == "bronze" else 0x3498DB,
-                "fields": [
-                    {"name": "🏢 Компания", "value": obj.company_name, "inline": False},
-                    {"name": "👤 Контактно лице", "value": obj.contact_person_names, "inline": True},
-                    {"name": "📧 Имейл", "value": obj.email, "inline": True},
-                    {"name": "📞 Телефон", "value": obj.phone or "—", "inline": True},
-                    {"name": "💎 Ниво", "value": obj.tier.capitalize() if obj.tier else "Не е посочено", "inline": True},
-                    {"name": "📝 Описание", "value": obj.description or "—", "inline": False},
-                ],
-                "footer": {
-                    "text": f"📅 Изпратено на {obj.created_at.strftime('%d.%m.%Y %H:%M')}"
-                }
-            }
-
-            try:
-                requests.post(DISCORD_WEBHOOK_URL, json={"embeds": [embed]})
-            except Exception as e:
-                print(f"[Discord Error] {e}")
 
     def export_as_xlsx(self, request, queryset):
         """Експортира избраните записи в XLSX"""
