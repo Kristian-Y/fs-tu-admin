@@ -2,8 +2,8 @@ from django.db import models
 
 class SponsorApplication(models.Model):
     TIER_CHOICES = [
+        ('platinum', 'Platinum'),
         ('gold', 'Gold'),
-        ('silver', 'Silver'),
         ('bronze', 'Bronze'),
         ('partner', 'Partner'),
         ('other', 'Other'),

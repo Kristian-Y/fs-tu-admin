@@ -6,8 +6,8 @@ import cloudinary.uploader
 
 class Sponsor(models.Model):
     TYPES = [
+        ('platinum', 'Platinum'),
         ('gold', 'Gold'),
-        ('silver', 'Silver'),
         ('bronze', 'Bronze'),
         ('partner', 'Partner'),
     ]
